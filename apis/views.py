@@ -54,7 +54,7 @@ class TaskAdd(APIView):
     def post(self,req):
         task = Task()
         task.Task_name=req.data["Task_name"]
-        task.Task_deadline=req.data["Task_details"]
+        task.Task_details=req.data["Task_details"]
         task.project=req.data["project_id"]
         task.save()
         Taskser=TaskSer(task,many=False)
@@ -71,7 +71,7 @@ class TaskUpdate(APIView):
         task =Task.objects.get(id=req.data["id"])
         
         task.Task_name=req.data["Task_name"]
-        task.Task_deadline=req.data["Task_details"]
+        task.Task_details=req.data["Task_details"]
         task.save()
         return Response({"message":"DONE","action":"UPDATED"})
         
