@@ -71,7 +71,7 @@ class TaskUpdate(APIView):
         task =Task.objects.get(id=req.data["id"])
         
         task.Task_name=req.data["Task_name"]
-        task.Task_deadline=req.data["Task_deadline"]
+        task.Task_deadline=req.data["Task_details"]
         task.save()
         return Response({"message":"DONE","action":"UPDATED"})
         
